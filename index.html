@@ -6,13 +6,12 @@
 <title>Empreenda em São Joaquim — Comunidade Vitalícia</title>
 <style>
 :root{
-  --bg:#0b0e14;
-  --bg-light:#151922;
-  --blue:#0b66d1;
-  --blue-light:#1a84ff;
-  --text:#f3f6ff;
-  --muted:#a0aec0;
-  --radius:16px;
+  --bg:#ffffff;
+  --bg-light:#f8f9fa;
+  --primary:#0b66d1;
+  --text:#1a1a1a;
+  --muted:#6c757d;
+  --radius:12px;
   font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -23,40 +22,52 @@ body{
   flex-direction:column;
   align-items:center;
   line-height:1.6;
-  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+@keyframes fadeInUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.05)}
 }
 section{width:100%;max-width:900px;padding:60px 20px;text-align:center}
 h1,h2,h3{font-weight:700;line-height:1.2}
-h1{font-size:2.2rem;color:var(--blue-light)}
+h1{font-size:2.2rem;color:var(--primary)}
 h2{font-size:1.6rem;margin-bottom:10px}
-h3{font-size:1.3rem;margin-bottom:8px;color:var(--blue-light)}
+h3{font-size:1.3rem;margin-bottom:8px;color:var(--primary)}
 p{font-size:1rem;color:var(--muted);margin-top:10px}
 .btn{
-  background:linear-gradient(90deg,var(--blue),var(--blue-light));
+  background:var(--primary);
   border:0;color:#fff;font-weight:700;
   padding:14px 28px;border-radius:var(--radius);
-  cursor:pointer;box-shadow:0 0 25px rgba(11,102,209,0.3);
+  cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.1);
   transition:transform .15s,box-shadow .15s;
 }
-.btn:hover{transform:scale(1.03);box-shadow:0 0 35px rgba(11,102,209,0.5)}
+.btn:hover{transform:scale(1.03);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
 .hero{display:flex;flex-direction:column;align-items:center;gap:22px}
 .hero p{max-width:700px}
-.separator{height:1px;width:100%;max-width:640px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);margin:50px auto;border-radius:5px}
-.feature{background:var(--bg-light);padding:20px;border-radius:var(--radius);margin-top:18px;transition:transform .3s}
-.feature:hover{transform:translateY(-4px)}
-.feature h3{margin-bottom:6px}
-.module{background:var(--bg-light);padding:24px;border-radius:var(--radius);margin-top:18px;text-align:left}
-.module strong{color:var(--blue-light)}
-.faq-item{background:var(--bg-light);border-radius:var(--radius);padding:16px;margin-top:14px;text-align:left;cursor:pointer;transition:background .3s}
-.faq-item:hover{background:#1d2430}
-.faq-item .answer{display:none;margin-top:8px;color:var(--muted);font-size:0.95rem}
-footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:0.9rem;border-top:1px solid rgba(255,255,255,0.05)}
+.separator{height:1px;width:100%;max-width:640px;background:#e0e0e0;margin:50px auto;border-radius:5px}
+.feature, .module, .access-item, .faq-item{
+  background:var(--bg-light);padding:25px;border-radius:var(--radius);margin-top:18px;transition:transform .3s;
+}
+.access-item h3{margin-bottom:12px;font-size:1.3rem}
+.access-item p{margin-top:8px;line-height:1.6}
+.feature:hover, .module:hover, .access-item:hover, .faq-item:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.1)}
+.fade-in{animation:fadeInUp 0.6s ease-out}
+.module{text-align:left}
+.access-item{text-align:left}
+.faq-item{text-align:left;cursor:pointer;transition:background .3s;border-left:3px solid transparent}
+.faq-item:hover{background:#e6e9ee;border-left-color:var(--primary)}
+.faq-item .answer{display:none;margin-top:8px;color:var(--muted);font-size:0.95rem;padding-left:12px;transition:opacity .3s}
+footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:0.9rem;border-top:1px solid #e0e0e0}
 .mini-cta{
  position:fixed;bottom:20px;right:20px;
- background:linear-gradient(90deg,var(--blue),var(--blue-light));
+ background:var(--primary);
  color:#fff;border-radius:999px;padding:12px 20px;
  display:flex;align-items:center;gap:10px;cursor:pointer;
- box-shadow:0 0 25px rgba(11,102,209,0.5);
+ box-shadow:0 4px 12px rgba(0,0,0,0.15);
  animation:bounce 2s infinite alternate;
 }
 @keyframes bounce{0%{transform:translateY(0)}100%{transform:translateY(-5px)}}
@@ -64,85 +75,145 @@ footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:0.9rem;b
  h1{font-size:1.8rem}
  h2{font-size:1.3rem}
  section{padding:50px 16px}
- .module{text-align:center}
+ .module, .access-item{text-align:center}
 }
 </style>
 </head>
 <body>
 
-<section class="hero">
+<section class="hero fade-in">
   <h1>Empreenda em São Joaquim da Barra com Confiança</h1>
-  <p>A <strong>Comunidade Empreenda em São Joaquim</strong> é o ponto de virada para quem quer prosperar sem depender de sorte. Aqui você encontra clareza, ferramentas e conexões reais para crescer no cenário local — com acesso vitalício e suporte contínuo.</p>
+  <p>A <strong>Comunidade Empreenda em São Joaquim</strong> oferece clareza, ferramentas e conexões reais para crescer no cenário local — com acesso vitalício e suporte contínuo.</p>
+  <p style="font-size:1.1rem;max-width:650px;margin-top:15px">
+    Imagine ter acesso a estratégias testadas e comprovadas que funcionam especificamente no mercado local. Você terá em suas mãos um arsenal completo de conhecimento que já transformou centenas de negócios na nossa região. Não precisa mais ficar tentando adivinhar o que funciona — você terá o caminho certo traçado.
+  </p>
   <button class="btn" onclick="buyNow()">Quero Fazer Parte Agora</button>
-  <p style="font-size:0.9rem;color:var(--muted)">Pagamento único · Acesso vitalício · Entrega imediata por e-mail</p>
+  <p style="font-size:0.9rem;color:var(--muted);margin-top:10px">Pagamento único · Acesso vitalício · Entrega imediata por e-mail</p>
 </section>
 
 <div class="separator"></div>
 
 <section>
-  <h2>Por que essa comunidade é a solução que São Joaquim esperava?</h2>
-  <p>Enquanto muitos empreendedores tentam adivinhar o próximo passo, aqui você tem direção, estratégia e apoio. Essa comunidade foi feita por quem entende os desafios locais e acredita no poder do conhecimento aplicado.</p>
-
-  <div class="feature"><h3>💡 Estratégias locais testadas</h3><p>Aprenda com quem já construiu negócios em São Joaquim da Barra e sabe como o mercado realmente funciona.</p></div>
-  <div class="feature"><h3>⚙️ Ferramentas e modelos prontos</h3><p>Tenha acesso a planilhas, templates e automações práticas que economizam tempo e aumentam resultados.</p></div>
-  <div class="feature"><h3>🎯 Acompanhamento constante</h3><p>Conteúdo atualizado, mentorias gravadas e orientações complementares sempre à sua disposição.</p></div>
-  <div class="feature"><h3>🚀 Acesso vitalício</h3><p>Pague uma única vez e tenha todas as futuras atualizações sem custo adicional.</p></div>
+  <h2>O que você vai ter acesso</h2>
+  <p style="margin-bottom:25px;color:var(--muted)">Um ecossistema completo de conhecimento e ferramentas para transformar seu negócio</p>
+  
+  <div class="access-item fade-in">
+    <h3>📚 Livros de Persuasão para Vendas</h3>
+    <p>Tenha acesso a obras selecionadas sobre psicologia do consumidor, técnicas de fechamento e comunicação persuasiva. Aprenda a estruturar seus argumentos de venda de forma ética e eficaz, aumentando sua taxa de conversão significativamente.</p>
+  </div>
+  
+  <div class="access-item fade-in">
+    <h3>🌱 Métodos de Tráfego Orgânico</h3>
+    <p>Descubra estratégias poderosas para atrair clientes sem gastar com anúncios. Você aprenderá a criar conteúdo que ressoa com seu público, técnicas de SEO local que funcionam na região, e como construir uma presença forte no Facebook e WhatsApp sem investir em mídia paga.</p>
+  </div>
+  
+  <div class="access-item fade-in">
+    <h3>🤖 Bots que Trabalham Enquanto Você Dorme</h3>
+    <p>Automatize processos de atendimento, qualificação de leads e follow-up de vendas. Nossa comunidade mostra como configurar chatbots inteligentes no WhatsApp que não apenas respondem clientes, mas qualificam e levam à venda — tudo operando 24 horas por dia, mesmo quando você está descansando.</p>
+  </div>
+  
+  <div class="access-item fade-in">
+    <h3>🎯 Mentorias ao Vivo</h3>
+    <p>Participe de sessões semanais onde você pode fazer perguntas diretas sobre seu negócio, apresentar cases reais e receber feedback personalizado. Essa é a oportunidade de ter um consultor ao seu lado sem pagar mensalidades altas.</p>
+  </div>
+  
+  <div class="access-item fade-in">
+    <h3>📖 Biblioteca Completa com Livros</h3>
+    <p>Centenas de livros digitais sobre empreendedorismo, marketing digital, gestão, liderança e negócios. Seja o conteúdo que você precisar para crescer, ele estará disponível na nossa biblioteca completa e organizada por categorias.</p>
+  </div>
+  
+  <div class="access-item fade-in">
+    <h3>💰 Tópicos de Contabilidade</h3>
+    <p>Aprenda a controlar seu fluxo de caixa, emitir notas fiscais corretamente, organizar planilhas financeiras e interpretar indicadores do seu negócio. Controle financeiro é fundamental para o crescimento sustentável.</p>
+  </div>
+  
+  <div class="access-item fade-in">
+    <h3>🚀 Estratégias de Tráfego Pago</h3>
+    <p>Quando você quiser escalar rapidamente, aprenda a criar e otimizar anúncios no Facebook e Google Ads. Descubra como investir R$ 100 e gerar R$ 500 ou mais em vendas através de campanhas estruturadas passo a passo.</p>
+  </div>
 </section>
 
 <div class="separator"></div>
 
-<section>
-  <h2>O que você vai dominar dentro da comunidade</h2>
-  <div class="module"><strong>1. Fundamentos do negócio local:</strong> monte uma base sólida, entenda clientes da região e posicione sua marca.</div>
-  <div class="module"><strong>2. Marketing e visibilidade:</strong> aprenda tráfego pago acessível, redes sociais e campanhas que convertem mesmo com baixo orçamento.</div>
-  <div class="module"><strong>3. Automação inteligente:</strong> use IA e ferramentas simples para ganhar tempo em atendimento, conteúdo e controle financeiro.</div>
-  <div class="module"><strong>4. Finanças e planejamento:</strong> saiba precificar, controlar fluxo de caixa e crescer de forma sustentável.</div>
-  <div class="module"><strong>5. Parcerias e networking local:</strong> conecte-se com outros empreendedores e descubra oportunidades que só existem em São Joaquim.</div>
-  <div class="module"><strong>6. Plano 90 dias:</strong> um roteiro guiado para sair da estagnação e alcançar resultados reais no trimestre.</div>
-</section>
-
-<div class="separator"></div>
-
-<section>
+<section class="fade-in">
   <h2>De dúvidas e insegurança à clareza e resultado</h2>
-  <p>Você vai perceber que empreender pode ser leve e previsível quando se tem um caminho seguro. Centenas de empreendedores da região já estão aplicando essas práticas — agora é a sua vez.</p>
+  <p style="font-size:1.1rem;max-width:750px;margin:20px 0">
+    Você vai perceber que empreender pode ser previsível e sustentável quando se tem um caminho seguro. Centenas de empreendedores da região já estão aplicando essas práticas — agora é a sua vez.
+  </p>
+  
+  <div style="background:linear-gradient(135deg,#e3f2fd,#fff);padding:30px;border-radius:var(--radius);margin:30px 0">
+    <div style="display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-bottom:25px">
+      <div>
+        <div style="font-size:2.5rem;font-weight:700;color:var(--primary)" id="counter1">200+</div>
+        <div style="color:var(--muted)">Empreendedores Ativos</div>
+      </div>
+      <div>
+        <div style="font-size:2.5rem;font-weight:700;color:var(--primary)" id="counter2">50+</div>
+        <div style="color:var(--muted)">Resultados Mensais</div>
+      </div>
+    </div>
+    <p style="font-style:italic;color:var(--muted)">"Em 3 meses usando as estratégias da comunidade, aumentei minhas vendas em 150%" — Maria, dona de loja</p>
+  </div>
+  
   <button class="btn" onclick="buyNow()">Quero Entrar na Comunidade</button>
 </section>
 
 <div class="separator"></div>
 
-<section>
+<section class="fade-in">
   <h2>Dúvidas Frequentes</h2>
+  <p style="margin-bottom:25px;color:var(--muted)">Respostas claras para suas principais perguntas</p>
 
   <div class="faq-item" onclick="toggleFaq(this)">
-    <div><strong>Como recebo o acesso?</strong></div>
-    <div class="answer">Após o pagamento, o acesso chega automaticamente por e-mail com as instruções iniciais.</div>
+    <div><strong>💬 Como recebo o acesso?</strong></div>
+    <div class="answer">Após o pagamento, o acesso chega automaticamente por e-mail com as instruções iniciais. Você receberá um link direto para entrar na plataforma e começará a ter acesso imediato a todo o conteúdo.</div>
   </div>
 
   <div class="faq-item" onclick="toggleFaq(this)">
-    <div><strong>O conteúdo é atualizado?</strong></div>
-    <div class="answer">Sim, novos módulos e materiais são adicionados periodicamente e o seu acesso é vitalício.</div>
+    <div><strong>🔄 O conteúdo é atualizado?</strong></div>
+    <div class="answer">Sim, novos módulos e materiais são adicionados periodicamente e o seu acesso é vitalício. A cada semana novos livros, estratégias e ferramentas são disponibilizados para manter você sempre na vanguarda do conhecimento.</div>
   </div>
 
   <div class="faq-item" onclick="toggleFaq(this)">
-    <div><strong>Serve para qualquer tipo de negócio?</strong></div>
-    <div class="answer">Sim — comércio, serviços ou empreendimentos digitais. As estratégias são adaptáveis à realidade local.</div>
+    <div><strong>🎯 Serve para qualquer tipo de negócio?</strong></div>
+    <div class="answer">Sim — comércio, serviços ou empreendimentos digitais. As estratégias são adaptáveis à realidade local. Seja você dono de um comércio, prestador de serviços, ou mesmo alguém que vende produtos digitais, encontrará conteúdo específico para seu nicho.</div>
   </div>
 
   <div class="faq-item" onclick="toggleFaq(this)">
-    <div><strong>Preciso ter experiência?</strong></div>
-    <div class="answer">Não. A comunidade foi criada justamente para quem quer dar o primeiro passo com segurança e apoio.</div>
+    <div><strong>❓ Preciso ter experiência?</strong></div>
+    <div class="answer">Não. A comunidade foi criada justamente para quem quer dar o primeiro passo com segurança e apoio. Tudo começa do zero, com explicações claras e passo a passo para que qualquer pessoa possa implementar.</div>
+  </div>
+  
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div><strong>⏰ Quanto tempo preciso investir?</strong></div>
+    <div class="answer">Você pode começar aplicando as estratégias com apenas 30 minutos por dia. A comunidade foi projetada para pessoas que têm o dia a dia corrido, então todo conteúdo é objetivo e prático, sem enrolação.</div>
+  </div>
+  
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div><strong>🛡️ Há garantia?</strong></div>
+    <div class="answer">Sim, oferecemos garantia total de 7 dias. Se em uma semana você não acreditar que o conteúdo vale muito mais que o investimento, devolvemos 100% do seu dinheiro, sem perguntas ou burocracias.</div>
   </div>
 </section>
 
 <div class="separator"></div>
 
-<section>
+<section class="fade-in">
   <h2>Está pronto para mudar seu negócio?</h2>
-  <p>Não é só mais um curso. É o espaço que conecta, ensina e impulsiona os empreendedores de São Joaquim da Barra.  
-  Tenha direção, ferramentas e apoio vitalício — tudo em um só lugar.</p>
-  <button class="btn" onclick="buyNow()">Adquirir Acesso Vitalício</button>
-  <p style="font-size:0.9rem;color:var(--muted)">Garantia de 7 dias · Pagamento único · Acesso imediato</p>
+  <p style="font-size:1.15rem;max-width:750px;margin:20px 0">
+    Não é só mais um curso. É o espaço que conecta, ensina e impulsiona os empreendedores de São Joaquim da Barra. Tenha direção, ferramentas e apoio vitalício — tudo em um só lugar.
+  </p>
+  
+  <div style="background:var(--bg-light);padding:25px;border-radius:var(--radius);max-width:600px;margin:25px auto">
+    <p style="font-weight:600;margin-bottom:15px">O que esperar nos primeiros 30 dias:</p>
+    <p style="text-align:left;margin:10px 0">✅ Clareza sobre seu modelo de negócio</p>
+    <p style="text-align:left;margin:10px 0">✅ Primeiros passos implementados</p>
+    <p style="text-align:left;margin:10px 0">✅ Estratégias de vendas aplicadas</p>
+    <p style="text-align:left;margin:10px 0">✅ Comunidade ativa para networking</p>
+    <p style="text-align:left;margin:10px 0">✅ Suporte direto para suas dúvidas</p>
+  </div>
+  
+  <button class="btn" onclick="buyNow()" style="animation:pulse 2s ease-in-out infinite">Adquirir Acesso Vitalício</button>
+  <p style="font-size:0.9rem;color:var(--muted);margin-top:15px">Garantia de 7 dias · Pagamento único · Acesso imediato</p>
 </section>
 
 <footer>
@@ -151,7 +222,7 @@ footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:0.9rem;b
 </footer>
 
 <div class="mini-cta" onclick="buyNow()">
-  🚀 Fazer Parte Agora
+  Fazer Parte Agora
 </div>
 
 <script>
@@ -165,7 +236,63 @@ function toggleFaq(el){
   document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
   ans.style.display=open?'none':'block';
 }
+
+// Animação de contador
+function animateCounter(el, start, end, duration){
+  let startTimestamp = null;
+  const step = (timestamp) => {
+    if (!startTimestamp) startTimestamp = timestamp;
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+    el.textContent = Math.floor(progress * (end - start) + start) + '+';
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+  window.requestAnimationFrame(step);
+}
+
+// Observer para animações ao rolar
+const observerOptions = {
+  threshold: 0.3,
+  rootMargin: '0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, index * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Aplicar animação fade-in aos elementos
+document.querySelectorAll('.fade-in').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+  observer.observe(el);
+});
+
+// Animação do contador quando a seção é visível
+let counterAnimated = false;
+const counterSection = document.querySelector('#counter1');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !counterAnimated) {
+      animateCounter(document.getElementById('counter1'), 0, 200, 2000);
+      animateCounter(document.getElementById('counter2'), 0, 50, 2000);
+      counterAnimated = true;
+    }
+  });
+});
+
+if (counterSection) {
+  counterObserver.observe(counterSection.parentElement);
+}
 </script>
 </body>
 </html>
-
