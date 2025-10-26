@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Empreenda em São Joaquim — Comunidade Vitalícia</title>
+<style>
+:root{
+  --bg:#0b0e14;
+  --bg-light:#151922;
+  --blue:#0b66d1;
+  --blue-light:#1a84ff;
+  --text:#f3f6ff;
+  --muted:#a0aec0;
+  --radius:16px;
+  font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--text);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+section{width:100%;max-width:900px;padding:60px 20px;text-align:center}
+h1,h2,h3{font-weight:700;line-height:1.2}
+h1{font-size:2.2rem;color:var(--blue-light)}
+h2{font-size:1.6rem;margin-bottom:10px}
+h3{font-size:1.3rem;margin-bottom:8px;color:var(--blue-light)}
+p{font-size:1rem;color:var(--muted);margin-top:10px}
+.btn{
+  background:linear-gradient(90deg,var(--blue),var(--blue-light));
+  border:0;color:#fff;font-weight:700;
+  padding:14px 28px;border-radius:var(--radius);
+  cursor:pointer;box-shadow:0 0 25px rgba(11,102,209,0.3);
+  transition:transform .15s,box-shadow .15s;
+}
+.btn:hover{transform:scale(1.03);box-shadow:0 0 35px rgba(11,102,209,0.5)}
+.hero{display:flex;flex-direction:column;align-items:center;gap:22px}
+.hero p{max-width:700px}
+.separator{height:1px;width:100%;max-width:640px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.1),transparent);margin:50px auto;border-radius:5px}
+.feature{background:var(--bg-light);padding:20px;border-radius:var(--radius);margin-top:18px;transition:transform .3s}
+.feature:hover{transform:translateY(-4px)}
+.feature h3{margin-bottom:6px}
+.module{background:var(--bg-light);padding:24px;border-radius:var(--radius);margin-top:18px;text-align:left}
+.module strong{color:var(--blue-light)}
+.faq-item{background:var(--bg-light);border-radius:var(--radius);padding:16px;margin-top:14px;text-align:left;cursor:pointer;transition:background .3s}
+.faq-item:hover{background:#1d2430}
+.faq-item .answer{display:none;margin-top:8px;color:var(--muted);font-size:0.95rem}
+footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:0.9rem;border-top:1px solid rgba(255,255,255,0.05)}
+.mini-cta{
+ position:fixed;bottom:20px;right:20px;
+ background:linear-gradient(90deg,var(--blue),var(--blue-light));
+ color:#fff;border-radius:999px;padding:12px 20px;
+ display:flex;align-items:center;gap:10px;cursor:pointer;
+ box-shadow:0 0 25px rgba(11,102,209,0.5);
+ animation:bounce 2s infinite alternate;
+}
+@keyframes bounce{0%{transform:translateY(0)}100%{transform:translateY(-5px)}}
+@media(max-width:700px){
+ h1{font-size:1.8rem}
+ h2{font-size:1.3rem}
+ section{padding:50px 16px}
+ .module{text-align:center}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>Empreenda em São Joaquim da Barra com Confiança</h1>
+  <p>A <strong>Comunidade Empreenda em São Joaquim</strong> é o ponto de virada para quem quer prosperar sem depender de sorte. Aqui você encontra clareza, ferramentas e conexões reais para crescer no cenário local — com acesso vitalício e suporte contínuo.</p>
+  <button class="btn" onclick="buyNow()">Quero Fazer Parte Agora</button>
+  <p style="font-size:0.9rem;color:var(--muted)">Pagamento único · Acesso vitalício · Entrega imediata por e-mail</p>
+</section>
+
+<div class="separator"></div>
+
+<section>
+  <h2>Por que essa comunidade é a solução que São Joaquim esperava?</h2>
+  <p>Enquanto muitos empreendedores tentam adivinhar o próximo passo, aqui você tem direção, estratégia e apoio. Essa comunidade foi feita por quem entende os desafios locais e acredita no poder do conhecimento aplicado.</p>
+
+  <div class="feature"><h3>💡 Estratégias locais testadas</h3><p>Aprenda com quem já construiu negócios em São Joaquim da Barra e sabe como o mercado realmente funciona.</p></div>
+  <div class="feature"><h3>⚙️ Ferramentas e modelos prontos</h3><p>Tenha acesso a planilhas, templates e automações práticas que economizam tempo e aumentam resultados.</p></div>
+  <div class="feature"><h3>🎯 Acompanhamento constante</h3><p>Conteúdo atualizado, mentorias gravadas e orientações complementares sempre à sua disposição.</p></div>
+  <div class="feature"><h3>🚀 Acesso vitalício</h3><p>Pague uma única vez e tenha todas as futuras atualizações sem custo adicional.</p></div>
+</section>
+
+<div class="separator"></div>
+
+<section>
+  <h2>O que você vai dominar dentro da comunidade</h2>
+  <div class="module"><strong>1. Fundamentos do negócio local:</strong> monte uma base sólida, entenda clientes da região e posicione sua marca.</div>
+  <div class="module"><strong>2. Marketing e visibilidade:</strong> aprenda tráfego pago acessível, redes sociais e campanhas que convertem mesmo com baixo orçamento.</div>
+  <div class="module"><strong>3. Automação inteligente:</strong> use IA e ferramentas simples para ganhar tempo em atendimento, conteúdo e controle financeiro.</div>
+  <div class="module"><strong>4. Finanças e planejamento:</strong> saiba precificar, controlar fluxo de caixa e crescer de forma sustentável.</div>
+  <div class="module"><strong>5. Parcerias e networking local:</strong> conecte-se com outros empreendedores e descubra oportunidades que só existem em São Joaquim.</div>
+  <div class="module"><strong>6. Plano 90 dias:</strong> um roteiro guiado para sair da estagnação e alcançar resultados reais no trimestre.</div>
+</section>
+
+<div class="separator"></div>
+
+<section>
+  <h2>De dúvidas e insegurança à clareza e resultado</h2>
+  <p>Você vai perceber que empreender pode ser leve e previsível quando se tem um caminho seguro. Centenas de empreendedores da região já estão aplicando essas práticas — agora é a sua vez.</p>
+  <button class="btn" onclick="buyNow()">Quero Entrar na Comunidade</button>
+</section>
+
+<div class="separator"></div>
+
+<section>
+  <h2>Dúvidas Frequentes</h2>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div><strong>Como recebo o acesso?</strong></div>
+    <div class="answer">Após o pagamento, o acesso chega automaticamente por e-mail com as instruções iniciais.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div><strong>O conteúdo é atualizado?</strong></div>
+    <div class="answer">Sim, novos módulos e materiais são adicionados periodicamente e o seu acesso é vitalício.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div><strong>Serve para qualquer tipo de negócio?</strong></div>
+    <div class="answer">Sim — comércio, serviços ou empreendimentos digitais. As estratégias são adaptáveis à realidade local.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div><strong>Preciso ter experiência?</strong></div>
+    <div class="answer">Não. A comunidade foi criada justamente para quem quer dar o primeiro passo com segurança e apoio.</div>
+  </div>
+</section>
+
+<div class="separator"></div>
+
+<section>
+  <h2>Está pronto para mudar seu negócio?</h2>
+  <p>Não é só mais um curso. É o espaço que conecta, ensina e impulsiona os empreendedores de São Joaquim da Barra.  
+  Tenha direção, ferramentas e apoio vitalício — tudo em um só lugar.</p>
+  <button class="btn" onclick="buyNow()">Adquirir Acesso Vitalício</button>
+  <p style="font-size:0.9rem;color:var(--muted)">Garantia de 7 dias · Pagamento único · Acesso imediato</p>
+</section>
+
+<footer>
+  © 2025 Comunidade Empreenda em São Joaquim — Todos os direitos reservados<br>
+  Pagamento único · Acesso vitalício · Entrega automática por e-mail
+</footer>
+
+<div class="mini-cta" onclick="buyNow()">
+  🚀 Fazer Parte Agora
+</div>
+
+<script>
+const CHECKOUT_LINK = 'https://seu-checkout-aqui.example/';
+function buyNow(){
+  window.open(CHECKOUT_LINK,'_blank');
+}
+function toggleFaq(el){
+  const ans = el.querySelector('.answer');
+  const open = ans.style.display==='block';
+  document.querySelectorAll('.faq-item .answer').forEach(a=>a.style.display='none');
+  ans.style.display=open?'none':'block';
+}
+</script>
+</body>
+</html>
+
